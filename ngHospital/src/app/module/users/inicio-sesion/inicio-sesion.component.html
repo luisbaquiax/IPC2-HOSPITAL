@@ -1,0 +1,25 @@
+<main class="form-signin">
+  <div class="container text-center">
+    <form (ngSubmit)="iniciarSesion()" #userForm="ngForm">
+      <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+      <div *ngIf="msgLogin!=''" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{msgLogin}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <h4 class="text-warning"></h4>
+      <div class="form-floating">
+        <input [(ngModel)]="user.username" type="text" name="username" class="form-control" id="username"
+          placeholder="Nombre de usuario">
+        <label for="floatingInput">Nombre de usuario</label>
+      </div>
+      <div class="form-floating">
+        <input [(ngModel)]="user.password" type="password" name="pass" class="form-control" id="pass"
+          placeholder="Password">
+        <label for="floatingPassword">Contraseña:</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!userForm.form.valid">Ingresar</button>
+    </form>
+    <hr>
+    <button class="btn btn-success" type="button" (click)="crearCuenta()">Crear cuenta</button>
+  </div>
+</main>

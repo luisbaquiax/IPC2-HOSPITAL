@@ -1,0 +1,93 @@
+<div class="container col-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center">Crear cuenta</h1>
+            <a href="{{url}}">Iniciar sesión</a>
+        </div>
+        <div class="card-boy">
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                <div class="row">
+                    <div class="mb-3 form-group">
+                        <label for="recipient-name" class="col-form-label">Nombre:</label>
+                        <input [(ngModel)]="usuario.nombre" type="text" name="nombre" class="form-control"
+                            id="recipient-name" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-username" class="col-form-label">Nombre de usuario:</label>
+                        <input [(ngModel)]="usuario.username" type="text" name="username" class="form-control"
+                            id="recipient-username" required="">
+                            <div *ngIf="msgCreatCount!=''" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{msgCreatCount}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-cui" class="col-form-label">CUI:</label>
+                        <input [(ngModel)]="usuario.cui" type="text" name="cui" class="form-control"
+                            id="recipient-cui" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-telefono" class="col-form-label">Telefono:</label>
+                        <input [(ngModel)]="usuario.telefono" type="number" name="telefono" class="form-control"
+                            id="recipient-telefono" required="" min="1">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-password" class="col-form-label">Contraseña:</label>
+                        <input [(ngModel)]="usuario.password" type="password" name="password" class="form-control"
+                            id="recipient-password" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-email" class="col-form-label">Correo eléctronico:</label>
+                        <input [(ngModel)]="usuario.email" type="email" name="email" class="form-control"
+                            id="recipient-email" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-fecha" class="col-form-label">Fecha de nacimiento/fundación:</label>
+                        <input [(ngModel)]="usuario.fechaNacimiento" type="date" name="fecha" class="form-control"
+                            id="recipient-fecha" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-saldo" class="col-form-label">Saldo:</label>
+                        <input [(ngModel)]="usuario.saldo" type="number" step="0" name="saldo" class="form-control"
+                            id="recipient-saldo" required="" min="1">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-direccion" class="col-form-label">Dirección:</label>
+                        <input [(ngModel)]="usuario.direccion" type="text" name="direccion" class="form-control"
+                            id="recipient-direccion" required="">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="recipient-direccion" class="col-form-label">Elegir tipo de usuario:</label>
+                        <div class="form-check">
+                            <input [(ngModel)]="usuario.tipo" class="form-check-input" type="radio" name="tipo"
+                                id="flexRadioDefault1" value="{{medico}}">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Médico
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input [(ngModel)]="usuario.tipo" class="form-check-input" type="radio" name="tipo"
+                                id="flexRadioDefault2" value="{{lab}}">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Laboratorio:
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input [(ngModel)]="usuario.tipo" class="form-check-input" type="radio" name="tipo"
+                                id="flexRadioDefault3" value="{{paciente}}">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Paciente
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between"></div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mt-2 me-4" [disabled]="!userForm.form.valid">Guardar
+                        cambios</button>
+                    <button type="reset" class="btn btn-danger mt-2">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
